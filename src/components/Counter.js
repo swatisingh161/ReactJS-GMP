@@ -8,41 +8,37 @@ class Counter extends React.Component {
       count: props.initialValue,
     };
   }
-
   increment = () => {
     this.setState((prevState) => ({ count: prevState.count + 1 }));
   };
-
   decrement = () => {
     this.setState((prevState) => ({ count: prevState.count - 1 }));
   };
-
   render() {
-    const { count } = this.state;
     return React.createElement(
       "div",
       { className: "counter" },
-      React.createElement("p", null, `Count: ${count}`),
       React.createElement(
         "button",
-        { onClick: this.decrement, "aria-label": "Decrement" },
+        { onClick: this.decrement, "aria-label": "Decrease count" },
         "Decrement"
       ),
+      React.createElement("p", null, `Count: ${this.state.count}`),
       React.createElement(
         "button",
-        { onClick: this.increment, "aria-label": "Increment" },
+        { onClick: this.increment, "aria-label": "Increase count" },
         "Increment"
       )
     );
   }
 }
 
-Counter.propTypes = {
-  initialValue: PropTypes.number,
-};
-
 Counter.defaultProps = {
   initialValue: 0,
+};
+
+Counter.propTypes = {
+  initialValue: PropTypes.number,
 };
 
 export default Counter;

@@ -23,6 +23,12 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "env": {
+      "cypress/globals": true
+    },
+    "plugins": [
+      "cypress"
     ]
   },
   "browserslist": {
@@ -36,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^14.2.0"
   }
 }

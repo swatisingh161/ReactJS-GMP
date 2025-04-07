@@ -1,6 +1,6 @@
 describe("Counter Component", () => {
   it("renders the initial value provided in props", () => {
-    cy.visit("http://localhost:3000"); 
+    cy.visit("http://localhost:3000");
 
     cy.contains("Count: 0");
   });

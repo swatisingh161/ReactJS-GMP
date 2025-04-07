@@ -7,9 +7,7 @@ describe("GenreSelect Component", () => {
   const mockOnSelect = jest.fn();
 
   test("renders all genres passed in props", () => {
-    render(
-      <GenreSelect genres={genres} selectedGenre="" onSelect={mockOnSelect} />
-    );
+    render(<GenreSelect genres={genres} selectedGenre="" onSelect={mockOnSelect} />);
 
     genres.forEach((genre) => {
       expect(screen.getByText(genre)).toBeInTheDocument();
@@ -17,13 +15,7 @@ describe("GenreSelect Component", () => {
   });
 
   test("highlights the selected genre", () => {
-    render(
-      <GenreSelect
-        genres={genres}
-        selectedGenre="Comedy"
-        onSelect={mockOnSelect}
-      />
-    );
+    render(<GenreSelect genres={genres} selectedGenre="Comedy" onSelect={mockOnSelect} />);
 
     const selectedButton = screen.getByText("Comedy");
     expect(selectedButton).toHaveClass("selected");
@@ -31,9 +23,7 @@ describe("GenreSelect Component", () => {
   });
 
   test('calls "onSelect" callback with correct genre when a button is clicked', () => {
-    render(
-      <GenreSelect genres={genres} selectedGenre="" onSelect={mockOnSelect} />
-    );
+    render(<GenreSelect genres={genres} selectedGenre="" onSelect={mockOnSelect} />);
 
     const actionButton = screen.getByText("Action");
     fireEvent.click(actionButton);
@@ -43,13 +33,7 @@ describe("GenreSelect Component", () => {
   });
 
   test('does not call "onSelect" when clicking an already selected genre', () => {
-    render(
-      <GenreSelect
-        genres={genres}
-        selectedGenre="Drama"
-        onSelect={mockOnSelect}
-      />
-    );
+    render(<GenreSelect genres={genres} selectedGenre="Drama" onSelect={mockOnSelect} />);
 
     const dramaButton = screen.getByText("Drama");
     fireEvent.click(dramaButton);

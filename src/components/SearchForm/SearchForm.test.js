@@ -7,7 +7,7 @@ describe("SearchForm Component", () => {
 
   test("renders input with initial value passed in props", () => {
     render(<SearchForm initialQuery="test query" onSearch={mockOnSearch} />);
-
+    
     const input = screen.getByPlaceholderText("Search...");
     expect(input).toBeInTheDocument();
     expect(input).toHaveValue("test query");

@@ -1,4 +1,5 @@
 import React from "react";
+import "./GenreSelect.css";
 
 const GenreSelect = ({ genres, selectedGenre, onSelect }) => {
   return (
@@ -7,8 +8,8 @@ const GenreSelect = ({ genres, selectedGenre, onSelect }) => {
         <button
           key={genre}
           className={genre === selectedGenre ? "selected" : ""}
-          onClick={() => genre !== selectedGenre && onSelect(genre)}
           aria-pressed={genre === selectedGenre}
+          onClick={() => genre !== selectedGenre && onSelect(genre)}
         >
           {genre}
         </button>

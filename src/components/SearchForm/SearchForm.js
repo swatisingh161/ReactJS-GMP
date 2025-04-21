@@ -1,20 +1,18 @@
 import React, { useState } from "react";
+import "./SearchForm.css";
 
 const SearchForm = ({ initialQuery = "", onSearch }) => {
   const [query, setQuery] = useState(initialQuery);
-
   const handleSearch = () => {
     if (query.trim()) {
       onSearch(query);
     }
   };
-
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSearch();
     }
   };
-
   return (
     <div className="search-form">
       <input
@@ -22,14 +20,10 @@ const SearchForm = ({ initialQuery = "", onSearch }) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Search..."
-        aria-label="Search input"
+        placeholder="What do you want to watch?"
       />
-      <button onClick={handleSearch} aria-label="Search">
-        Search
-      </button>
+      <button onClick={handleSearch}>Search</button>
     </div>
   );
 };
-
 export default SearchForm;

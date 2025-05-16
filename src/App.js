@@ -1,31 +1,19 @@
-import React, { useState } from "react";
-import Counter from "./components/Counter";
-import SearchForm from "./components/SearchForm";
-import GenreSelect from "./components/GenreSelect";
-import "./App.css";
+import React from "react";
+import { Routes, Route } from 'react-router-dom';
+import HomePage from "./pages/HomePage/HomePage";
+import AddMovieForm from "./components/AddMovieForm/AddMovieForm";
+import EditMovieForm from "./components/EditMovieForm/EditMovieForm";
 
 const App = () => {
-  const [selectedGenre, setSelectedGenre] = useState("Comedy");
-
-  const handleSearch = (query) => {
-    console.log("Search query:", query);
-  };
-
-  const handleGenreSelect = (genre) => {
-    setSelectedGenre(genre);
-    console.log("Selected genre:", genre);
-  };
-
   return (
-    <div>
-      <Counter initialValue={0} />
-      <SearchForm initialQuery="React" onSearch={handleSearch} />
-      <GenreSelect
-        genres={["Action", "Comedy", "Drama", "Horror"]}
-        selectedGenre={selectedGenre}
-        onSelect={handleGenreSelect}
-      />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />}>
+        <Route path="new" element={<AddMovieForm />} />
+      </Route>
+      <Route path="/movie/:movieId" element={<HomePage />}>
+        <Route path="edit" element={<EditMovieForm />} />
+      </Route>
+    </Routes>
   );
 };
 

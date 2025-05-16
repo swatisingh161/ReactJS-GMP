@@ -1,30 +1,15 @@
-import React, { useState } from "react";
-import Counter from "./components/Counter";
-import SearchForm from "./components/SearchForm";
-import GenreSelect from "./components/GenreSelect";
+import React from "react";
+import { Routes, Route } from 'react-router-dom';
+import HomePage from "./pages/HomePage/HomePage";
 import "./App.css";
 
 const App = () => {
-  const [selectedGenre, setSelectedGenre] = useState("Comedy");
-
-  const handleSearch = (query) => {
-    console.log("Search query:", query);
-  };
-
-  const handleGenreSelect = (genre) => {
-    setSelectedGenre(genre);
-    console.log("Selected genre:", genre);
-  };
-
   return (
     <div>
-      <Counter initialValue={0} />
-      <SearchForm initialQuery="React" onSearch={handleSearch} />
-      <GenreSelect
-        genres={["Action", "Comedy", "Drama", "Horror"]}
-        selectedGenre={selectedGenre}
-        onSelect={handleGenreSelect}
-      />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movie/:movieId" element={<HomePage />} />
+      </Routes>
     </div>
   );
 };
